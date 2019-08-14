@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package eleviopb;
+
+message Article {
+    string updated_at = 1;
+
+    message TRANSLATIONS {
+        string updated_at = 1;
+        string title = 2;
+
+        message SUMMARY {
+        }
+
+        SUMMARY summary = 3;
+
+        message MACHINE_SUMMARY {
+        }
+
+        MACHINE_SUMMARY machine_summary = 4;
+        string language_id = 5;
+        double id = 6;
+
+        message FEATURED_IMAGE_URL {
+        }
+
+        FEATURED_IMAGE_URL featured_image_url = 7;
+        string created_at = 8;
+        string body = 9;
+    }
+
+    repeated TRANSLATIONS translations = 2;
+    string title = 3;
+    string status = 4;
+    string source = 5;
+    repeated string smart_groups = 6;
+
+    message REVISION {
+    }
+
+    REVISION revision = 7;
+    double order = 8;
+    string notes = 9;
+
+    message LAST_PUBLISHER {
+    }
+
+    LAST_PUBLISHER last_publisher = 10;
+
+    message LAST_PUBLISHED_AT {
+    }
+
+    LAST_PUBLISHED_AT last_published_at = 11;
+    repeated string keywords = 12;
+    int32 id = 13;
+
+    message EXTERNAL_ID {
+    }
+
+    EXTERNAL_ID external_id = 14;
+    string editor_version = 15;
+    string created_at = 16;
+    repeated string contributors = 17;
+    double category_id = 18;
+
+    message AUTHOR {
+        string name = 1;
+        double id = 2;
+        string gravatar = 3;
+        string email = 4;
+    }
+
+    AUTHOR author = 19;
+    repeated string access_groups = 20;
+    repeated string access_emails = 21;
+    repeated string access_domains = 22;
+    string access = 23;
+    repeated string category_groups = 24;
+    repeated string subcategory_groups = 25;
+    repeated string article_groups = 26;
+    string revision_status = 27;
+    bool has_revision = 28;
+}
+
+
+message ArticleList {
+    repeated Article articles = 1;
+    int32 page_number = 2;
+    int32 page_size = 3;
+    int32 total_pages = 4;
+    int32 total_entries = 5;
+}
+
+message ArticleSingle {
+    Article article = 1;
+}
+
+message SearchResults {
+    string query_term = 1;
+    int32 total_results = 2;
+    int32 total_pages = 3;
+    int32 page_number = 4;
+    int32 count = 5;
+
+    message RESULTS {
+        int32 id = 1;
+        string title = 2;
+        double category_id = 3;
+    }
+
+    repeated RESULTS results = 6;
+    int32 current_page = 7;
+    double page_size = 8;
+}
