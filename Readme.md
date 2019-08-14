@@ -30,7 +30,7 @@ java -jar eleviovz --help
 java -jar eleviovz get
 
 # View page 2
-java -jar eleviovz -p 2 get
+java -jar eleviovz get --page 2
 ```
 
 Run with sbt
