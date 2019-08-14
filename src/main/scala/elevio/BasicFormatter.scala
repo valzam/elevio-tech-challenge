@@ -3,7 +3,7 @@ package elevio
 import eleviopb.api.{Article, ArticleList, SearchResults}
 
 /**
- * Object that handles all the pretty printing to stdout
+ * Trait that handles all the pretty printing to stdout
  */
 trait BasicFormatter {
   def print(input: ArticleList): Unit = {
@@ -36,6 +36,14 @@ trait BasicFormatter {
 
   }
 
+  /**
+   * The point of this method is to make it easy for other traits to re-use the formatting logic for specific
+   * response objects but not use stdout as a target.
+   * For example, another trait could implement a print method that saves the text to a file.
+   * This is also useful for testing because a Mock just needs to override this method to capture the output of
+   * the CommandDispatcher.
+   * @param input string to be printed out
+   */
   def print(input: String): Unit = {
     println(input)
   }

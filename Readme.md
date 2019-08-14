@@ -51,8 +51,9 @@ sbt assembly
 
 Main pieces
 - ApiClient: Class that provides an easy way to access the elevio API
+- CliConfiguration: Schema and data access object of command line arguments
 - CommandDispatcher: Takes a CliConfiguration object and decides how to process the commands
 - BasicFormatter: Basic printing trait of results
 
-CommandDispatcher uses the BasicFormatter by default but can be instantiated with a different one (for example print to file instead of stdout)
+CommandDispatcher uses the BasicFormatter by default but could be instantiated with a different one (for example print to file instead of stdout)
  
