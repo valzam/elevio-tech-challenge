@@ -20,9 +20,7 @@ export ELEVIO_API_KEY=foo
 export ELEVIO_API_TOKEN=bar
 ```
 
-Use pre-compiled version downloadable [here](https://elevio-tech-challlenge.s3-ap-southeast-2.amazonaws.com/eleviovz)
-
-SHA256 d785cbb1cbed09440e7a1cc200efa526688d31749b9f59e13a09fde6782ad710
+Download pre-compiled version from the [release page](https://github.com/valzam/elevio-tech-challenge/releases/tag/v0.1)
 ```
 java -jar eleviovz --help
 
