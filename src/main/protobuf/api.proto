@@ -3,65 +3,6 @@ syntax = "proto3";
 package eleviopb;
 
 message Article {
-    string updated_at = 1;
-
-    message TRANSLATIONS {
-        string updated_at = 1;
-        string title = 2;
-
-        message SUMMARY {
-        }
-
-        SUMMARY summary = 3;
-
-        message MACHINE_SUMMARY {
-        }
-
-        MACHINE_SUMMARY machine_summary = 4;
-        string language_id = 5;
-        double id = 6;
-
-        message FEATURED_IMAGE_URL {
-        }
-
-        FEATURED_IMAGE_URL featured_image_url = 7;
-        string created_at = 8;
-        string body = 9;
-    }
-
-    repeated TRANSLATIONS translations = 2;
-    string title = 3;
-    string status = 4;
-    string source = 5;
-    repeated string smart_groups = 6;
-
-    message REVISION {
-    }
-
-    REVISION revision = 7;
-    double order = 8;
-    string notes = 9;
-
-    message LAST_PUBLISHER {
-    }
-
-    LAST_PUBLISHER last_publisher = 10;
-
-    message LAST_PUBLISHED_AT {
-    }
-
-    LAST_PUBLISHED_AT last_published_at = 11;
-    repeated string keywords = 12;
-    int32 id = 13;
-
-    message EXTERNAL_ID {
-    }
-
-    EXTERNAL_ID external_id = 14;
-    string editor_version = 15;
-    string created_at = 16;
-    repeated string contributors = 17;
-    double category_id = 18;
 
     message AUTHOR {
         string name = 1;
@@ -70,6 +11,61 @@ message Article {
         string email = 4;
     }
 
+    message TRANSLATION {
+        string updated_at = 1;
+        string title = 2;
+        string summary = 3;
+        string machine_summary = 4;
+        string language_id = 5;
+        double id = 6;
+        string featured_image_url = 7;
+        string created_at = 8;
+        string body = 9;
+    }
+
+    message REVISION {
+        string updated_at = 1;
+        repeated TRANSLATION translations = 2;
+        string status = 3;
+        string source = 4;
+        repeated string smart_groups = 5;
+        double order = 7;
+        string notes = 8;
+        AUTHOR last_publisher = 9;
+        string last_published_at = 10;
+        repeated string keywords = 11;
+        double id = 12;
+        string external_id = 13;
+        string editor_version = 14;
+        string created_at = 15;
+        repeated AUTHOR contributors = 16;
+        double category_id = 17;
+        AUTHOR author = 18;
+        repeated string access_groups = 19;
+        repeated string access_emails = 20;
+        repeated string access_domains = 21;
+        string access = 22;
+    }
+
+    string updated_at = 1;
+    repeated TRANSLATION translations = 2;
+
+    string title = 3;
+    string status = 4;
+    string source = 5;
+    repeated string smart_groups = 6;
+    double order = 8;
+    string notes = 9;
+    AUTHOR last_publisher = 10;
+    string last_published_at = 11;
+    repeated string keywords = 12;
+    int32 id = 13;
+    string external_id = 14;
+    string editor_version = 15;
+    string created_at = 16;
+    repeated AUTHOR contributors = 17;
+    double category_id = 18;
+    REVISION revision = 7;
     AUTHOR author = 19;
     repeated string access_groups = 20;
     repeated string access_emails = 21;

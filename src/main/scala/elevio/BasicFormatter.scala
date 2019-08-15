@@ -1,5 +1,6 @@
 package elevio
 
+import eleviopb.api.Article.AUTHOR
 import eleviopb.api.{Article, ArticleList, SearchResults}
 
 /**
@@ -17,6 +18,10 @@ trait BasicFormatter {
 
   def print(input: Article): Unit = {
     print(f"${input.id}: ${input.title}")
+    print(f"Last published: ${input.lastPublishedAt}")
+
+    val author = input.author.getOrElse(AUTHOR())
+    print(f"Author: ${author.name}")
     for (version <- input.translations)
       print(version.body)
 
